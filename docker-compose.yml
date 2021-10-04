@@ -1,0 +1,16 @@
+version: "3"
+services:
+  nginx:
+   container_name: nginx
+   restart: always
+   build: .
+   ports:
+     - "88:88"
+   volumes:
+     - ./landing-page:/var/www/landing-page
+   networks:
+     - flask-blog_flask_network
+
+networks:
+  flask-blog_flask_network:
+    external: true
