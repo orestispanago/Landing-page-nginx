@@ -1,16 +1,19 @@
 version: "3"
 services:
   nginx:
-   container_name: nginx
+   container_name: landing_nginx
    restart: always
    build: .
    ports:
-     - "88:88"
+     - "80:80"
    volumes:
      - ./landing-page:/var/www/landing-page
    networks:
      - flask-blog_flask_network
+     - airquality_aq_network
 
 networks:
   flask-blog_flask_network:
+    external: true
+  airquality_aq_network:
     external: true
